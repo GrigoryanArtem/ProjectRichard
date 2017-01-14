@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ProjectRichard.Model.Bot;
+using Discord;
 
 namespace ProjectRichard.CUI
 {
@@ -10,6 +8,15 @@ namespace ProjectRichard.CUI
     {
         static void Main(string[] args)
         {
+            DiscordBot bot = new DiscordBot(Log);
+
+            bot.BotToken = Properties.Settings.Default.BotToken;
+            bot.Start();
+        }
+
+        static void Log(object sender, LogMessageEventArgs e)
+        {
+            Console.WriteLine(e.Message);
         }
     }
 }
