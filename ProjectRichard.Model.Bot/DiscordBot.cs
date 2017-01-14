@@ -2,6 +2,8 @@
 using Discord.Commands;
 using System;
 using System.Text;
+using System.Threading.Tasks;
+using ProjectRichard.Data;
 
 namespace ProjectRichard.Model.Bot
 {
@@ -51,7 +53,17 @@ namespace ProjectRichard.Model.Bot
                 await e.Channel.SendMessage(GetTimeMessage());
             });
 
-                
+            mCommands.CreateCommand(BotConstants.UpdateCommand).Do((e) =>
+            {
+                NationsManager.Instance.Update();
+            });
+
+            mCommands.CreateCommand(BotConstants.GetNationInfoCommand).Parameter("name", ParameterType.Required).Do(async (e) =>
+            {
+                await FindNation(e);
+            });
+
+
             mClient.ExecuteAndWait(async () =>
             {
                 await mClient.Connect(BotToken, TokenType.Bot);
@@ -70,6 +82,24 @@ namespace ProjectRichard.Model.Bot
             sb.AppendLine(DateTime.Now.ToLongDateString());
 
             return sb.ToString();
+        }
+
+        #endregion
+
+        #region Commands
+
+        private async Task FindNation(CommandEventArgs e)
+        {
+            Nation nation = NationsManager.Instance.FindByName(e.Args[0]);
+
+            if(nation == null)
+            {
+                await e.User.SendMessage("Неверное название нации");
+            }
+            else
+            {
+                await e.User.SendMessage(NationInfo.Create(nation));
+            }           
         }
 
         #endregion

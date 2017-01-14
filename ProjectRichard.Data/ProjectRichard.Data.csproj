@@ -54,6 +54,7 @@
     <Compile Include="Nation.cs">
       <DependentUpon>ProjectRichardDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="NationsManager.cs" />
     <Compile Include="ProjectRichardDBModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
