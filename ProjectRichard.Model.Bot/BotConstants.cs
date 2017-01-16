@@ -6,7 +6,7 @@
         {
             get
             {
-                return '!';
+                return '-';
             }
         }
 
@@ -17,6 +17,7 @@
                 return "time";
             }
         }
+
         static internal string GetNationInfoCommand
         {
             get
@@ -30,6 +31,54 @@
             get
             {
                 return "update";
+            }
+        }
+
+        static internal string CreateRoomCommand
+        {
+            get
+            {
+                return "create room";
+            }
+        }
+
+        static internal string NumberOfPlayers
+        {
+            get
+            {
+                return "numberOfPlayers";
+            }
+        }
+
+        static internal string JoinCommand
+        {
+            get
+            {
+                return "join";
+            }
+        }
+
+        static internal string BannedNation
+        {
+            get
+            {
+                return "bannedNation";
+            }
+        }
+
+        static internal string CreateGameCommand
+        {
+            get
+            {
+                return "create game";
+            }
+        }
+
+        static internal string GameName
+        {
+            get
+            {
+                return "gameName";
             }
         }
 
@@ -48,6 +97,14 @@
                 return "{0}:\n\t{1}\n";
             }
         }
-        
+
+        static internal string GetNationInfoParameter
+        {
+            get
+            {
+                return "name";
+            }
+        }
+
     }
 }

@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="ntext" Nullable="false" />
           <Property Name="Property" Type="ntext" Nullable="false" />
           <Property Name="Improvements" Type="ntext" />
@@ -17,7 +17,7 @@
           <Property Name="PowerEra" Type="ntext" Nullable="false" />
           <Property Name="Place" Type="ntext" Nullable="false" />
           <Property Name="Evaluation" Type="int" Nullable="false" />
-          <Property Name="URL" Type="ntext" Nullable="false" />
+          <Property Name="URL" Type="ntext" />
         </EntityType>
         <EntityContainer Name="Хранилище ProjectRichardDataBaseModelContainer">
           <EntitySet Name="Nation" EntityType="Self.Nation" Schema="dbo" store:Type="Tables" />
@@ -38,7 +38,7 @@
           <Property Name="PowerEra" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Place" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Evaluation" Type="Int32" Nullable="false" />
-          <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="ProjectRichardDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Nations" EntityType="Self.Nation" />

@@ -73,6 +73,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BotConstants.cs" />
+    <Compile Include="BotMessages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BotMessages.resx</DependentUpon>
+    </Compile>
     <Compile Include="DiscordBot.cs" />
     <Compile Include="NationInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,6 +90,16 @@
       <Project>{61db144b-15c7-46fd-84c2-038c265c2e59}</Project>
       <Name>ProjectRichard.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectRichard.Model\ProjectRichard.Model.csproj">
+      <Project>{47d8aca7-f14e-4d69-83a8-ad9c5d4ff4c6}</Project>
+      <Name>ProjectRichard.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BotMessages.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BotMessages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
