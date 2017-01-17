@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="RollCommandDescription" xml:space="preserve">
-    <value>Генерирует случайное число от 1 до 100 включительно. Полезно при решение спорных ситуаций.</value>
+    <value>Генерирует случайное число от 1 до 100 включительно. Полезно при решении спорных ситуаций.</value>
   </data>
   <data name="RollCommandMessageFormat" xml:space="preserve">
     <value>{0} выкинул {1}.</value>
