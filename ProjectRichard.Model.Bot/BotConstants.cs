@@ -10,11 +10,19 @@
             }
         }
 
-        static internal string TimeCommand
+        static internal int RollCommandMinValue
         {
             get
             {
-                return "time";
+                return 1;
+            }
+        }
+
+        static internal int RollCommandMaxValue
+        {
+            get
+            {
+                return 100;
             }
         }
 

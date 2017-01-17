@@ -16,7 +16,7 @@ namespace ProjectRichard.CUI
 
         static void Log(object sender, LogMessageEventArgs e)
         {
-            Console.WriteLine(e.Message);
+            Console.WriteLine($"[{e.Severity}] [{e.Source}] [{e.Message}]");
         }
     }
 }

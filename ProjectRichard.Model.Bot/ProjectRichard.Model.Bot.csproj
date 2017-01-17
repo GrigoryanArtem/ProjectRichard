@@ -72,6 +72,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotCommands\AdditionalBotModule.cs" />
+    <Compile Include="BotCommands\BotRoles.cs" />
+    <Compile Include="BotCommands\CommandResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommandResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="BotCommands\CommandsController.cs" />
+    <Compile Include="BotCommands\Command.cs" />
+    <Compile Include="BotCommands\CommandWithRoleControl.cs" />
+    <Compile Include="BotCommands\DefaultModule.cs" />
+    <Compile Include="BotCommands\ICommandsController.cs" />
+    <Compile Include="BotCommands\IModule.cs" />
     <Compile Include="BotConstants.cs" />
     <Compile Include="BotMessages.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -96,11 +109,16 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BotCommands\CommandResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CommandResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="BotMessages.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BotMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

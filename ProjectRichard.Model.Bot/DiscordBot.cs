@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectRichard.Data;
 using ProjectRichard.Model.CivilizationV;
+using ProjectRichard.Model.Bot.BotCommands;
 
 namespace ProjectRichard.Model.Bot
 {
@@ -15,6 +16,7 @@ namespace ProjectRichard.Model.Bot
         private DiscordClient mClient;
         private CommandService mCommands;
         private CivilizationGameRoom room;
+        private ICommandsController mController;
 
         #endregion
 
@@ -33,6 +35,18 @@ namespace ProjectRichard.Model.Bot
                 input.LogLevel = LogSeverity.Info;
                 input.LogHandler = func;
             });
+
+            mClient.UsingCommands(input =>
+            {
+                input.PrefixChar = BotConstants.PrefixChar;
+                input.AllowMentionPrefix = true;
+                input.HelpMode = HelpMode.Private;
+            });
+
+            mCommands = mClient.GetService<CommandService>();
+
+            mController = new CommandsController(mCommands);
+            mController.Add(new AdditionalBotModule());
         }
 
         #endregion
@@ -41,19 +55,7 @@ namespace ProjectRichard.Model.Bot
 
         public void Start()
         {
-            mClient.UsingCommands(input =>
-                {
-                    input.PrefixChar = BotConstants.PrefixChar;
-                    input.AllowMentionPrefix = true;
-                });
-
-            mCommands = mClient.GetService<CommandService>();
-
-                
-            mCommands.CreateCommand(BotConstants.TimeCommand).Do(async (e) =>
-                {
-                    await e.Channel.SendMessage(GetTimeMessage());
-                });
+            mController.Run();
 
             mCommands.CreateCommand(BotConstants.UpdateCommand).Do((e) =>
                 {
@@ -102,20 +104,6 @@ namespace ProjectRichard.Model.Bot
 
         #endregion
 
-        #region Private methods
-
-        private string GetTimeMessage()
-        {
-            StringBuilder sb = new StringBuilder();
-
-            sb.AppendLine(DateTime.Now.ToLongTimeString());
-            sb.AppendLine(DateTime.Now.ToLongDateString());
-
-            return sb.ToString();
-        }
-
-        #endregion
-
         #region Commands
 
         private async Task FindNation(CommandEventArgs e)
@@ -131,8 +119,11 @@ namespace ProjectRichard.Model.Bot
             {
                 Nation nation = NationsManager.Instance.FindByName(e.GetArg(BotConstants.BannedNation));
 
-                if(nation == null)
+                if (nation == null)
+                {
                     await e.Channel.SendMessage("nation is not exist");
+                    return;
+                }
 
                 room.AddPlayer(new CivilizationPlayer(e.User.Name, nation));
                 await e.Channel.SendMessage(String.Format("{0} зашел в комнату(1)\nМеста {1}/{2}", e.User.Name, room.Players.Count, room.NumberOfPlayers));
