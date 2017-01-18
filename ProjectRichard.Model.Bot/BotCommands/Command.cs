@@ -1,13 +1,14 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Discord.Commands;
+using System.Reflection;
 
 namespace ProjectRichard.Model.Bot.BotCommands
 {
     public class Command
     {
-        protected Func<CommandEventArgs, Task> mFunction;
-
+        protected MethodInfo mMethod;
+        protected IModule mParentModule;
+        
         #region Properties
 
         public string Name { get; protected set; }
@@ -16,16 +17,28 @@ namespace ProjectRichard.Model.Bot.BotCommands
 
         #endregion
 
-        public Command(string name, string description, Func<CommandEventArgs, Task> function)
+        public Command(IModule parentModule, MethodInfo commandMethod)
         {
-            Name = name;
-            Description = description;
-            mFunction = function;
+            mParentModule = parentModule;
+            mMethod = commandMethod;
+
+            CommandAttribute atribute = (mMethod.GetCustomAttribute(typeof(CommandAttribute)) as CommandAttribute);
+
+            Name = atribute.Name;
+            Description = atribute.Description;
         }
 
-        public virtual async Task Run(CommandEventArgs args)
+        public virtual void Run(CommandService service)
         {
-            await mFunction(args);
+            service.CreateCommand(Name).
+                    Description(Description).
+                    Do(async (args) =>
+                    {
+                        await args.Message.Delete();
+
+                        Task function = (Task)mMethod.Invoke(mParentModule, new object[] { args });
+                        await function;
+                    });
         }
     }
 }

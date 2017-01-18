@@ -61,47 +61,11 @@ namespace ProjectRichard.Model.Bot.BotCommands {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на Генерирует случайное число от 1 до 100 включительно. Полезно при решении спорных ситуаций..
-        /// </summary>
-        internal static string RollCommandDescription {
-            get {
-                return ResourceManager.GetString("RollCommandDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Ищет локализованную строку, похожую на {0} выкинул {1}..
         /// </summary>
         internal static string RollCommandMessageFormat {
             get {
                 return ResourceManager.GetString("RollCommandMessageFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на roll.
-        /// </summary>
-        internal static string RollCommandName {
-            get {
-                return ResourceManager.GetString("RollCommandName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на Печатает текущую дату и время..
-        /// </summary>
-        internal static string TimeCommandDescription {
-            get {
-                return ResourceManager.GetString("TimeCommandDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Ищет локализованную строку, похожую на time.
-        /// </summary>
-        internal static string TimeCommandName {
-            get {
-                return ResourceManager.GetString("TimeCommandName", resourceCulture);
             }
         }
     }

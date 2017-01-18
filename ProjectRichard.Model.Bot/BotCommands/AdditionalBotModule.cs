@@ -9,20 +9,16 @@ namespace ProjectRichard.Model.Bot.BotCommands
     {
         Random mRandom = new Random();
 
-        public AdditionalBotModule()
-        {
-            Add(new Command(CommandResources.TimeCommandName, CommandResources.TimeCommandDescription, Time));
-            Add(new Command(CommandResources.RollCommandName, CommandResources.RollCommandDescription, Roll));
-        }
-
         #region Commands
 
-        private async Task Time(CommandEventArgs e)
+        [Command(Name = CommandsConstants.TimeCommandName, Description = CommandsConstants.TimeCommandDescription)]
+        public async Task Time(CommandEventArgs e)
         {
             await e.Channel.SendMessage(CreateTimeMessage());
         }
 
-        private async Task Roll(CommandEventArgs e)
+        [Command(Name = CommandsConstants.RollCommandName, Description = CommandsConstants.RollCommandDescription)]
+        public async Task Roll(CommandEventArgs e)
         {
             int randomNumber = mRandom.Next(BotConstants.RollCommandMinValue, BotConstants.RollCommandMaxValue);
 

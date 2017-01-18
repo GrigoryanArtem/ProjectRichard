@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Discord.Commands;
+using System.Linq;
 
 namespace ProjectRichard.Model.Bot.BotCommands
 {
@@ -7,34 +8,31 @@ namespace ProjectRichard.Model.Bot.BotCommands
     {
         #region Members
 
-        private List<Command> mCommands = new List<Command>();
+        protected List<Command> mCommands = new List<Command>();
 
         #endregion
+
+        public DefaultModule()
+        {
+            AddCommands();
+        }
 
         public void Run(CommandService service)
         {
             foreach (var command in mCommands)
-            {
-                service.CreateCommand(command.Name).
-                    Description(command.Description).
-                    Do(async (e) =>
-                    {
-                        await e.Message.Delete();
-                        await command.Run(e);
-                    });
-            }
+                command.Run(service);
         }
 
         #region Protected methods
 
-        protected void Add(Command command)
+        protected void AddCommands()
         {
-            mCommands.Add(command);
-        }
+            var methods = this.GetType().GetMethods()
+                .Where(m => m.GetCustomAttributes(typeof(CommandAttribute), false).Length > 0)
+                .ToArray();
 
-        protected void Remove(Command command)
-        {
-            mCommands.Remove(command);
+            foreach (var method in methods)
+                mCommands.Add(new Command(this, method));
         }
 
         #endregion

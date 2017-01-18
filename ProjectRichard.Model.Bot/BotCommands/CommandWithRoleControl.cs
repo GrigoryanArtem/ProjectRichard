@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Threading.Tasks;
 using Discord.Commands;
 
@@ -8,18 +9,14 @@ namespace ProjectRichard.Model.Bot.BotCommands
     {
         private BotRoles mUserRole;
 
-        public CommandWithRoleControl(string name, string description, 
-            BotRoles userRole, Func<CommandEventArgs, Task> function) : base(name, description, function)
+        public CommandWithRoleControl(BotRoles userRoles, IModule parentModule, MethodInfo commandMethod) : base(parentModule, commandMethod)
         {
-            mUserRole = userRole;
+            mUserRole = userRoles;
         }
 
-        public override async Task Run(CommandEventArgs args)
+        public override void Run(CommandService service)
         {
-            // TO DO
-            // Chek user role
-
-            await base.Run(args);
+            base.Run(service);
         }
     }
 }

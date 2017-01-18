@@ -74,11 +74,13 @@
   <ItemGroup>
     <Compile Include="BotCommands\AdditionalBotModule.cs" />
     <Compile Include="BotCommands\BotRoles.cs" />
+    <Compile Include="BotCommands\CommandAttribute .cs" />
     <Compile Include="BotCommands\CommandResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CommandResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="BotCommands\CommandsConstants.cs" />
     <Compile Include="BotCommands\CommandsController.cs" />
     <Compile Include="BotCommands\Command.cs" />
     <Compile Include="BotCommands\CommandWithRoleControl.cs" />
