@@ -61,6 +61,15 @@ namespace ProjectRichard.Model.Bot.BotCommands {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Сэр, к сожалению, ваше положение не позволяет использовать данную команду..
+        /// </summary>
+        internal static string PermissionDeniedMessege {
+            get {
+                return ResourceManager.GetString("PermissionDeniedMessege", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на {0} выкинул {1}..
         /// </summary>
         internal static string RollCommandMessageFormat {

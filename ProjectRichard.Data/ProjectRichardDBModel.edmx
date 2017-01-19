@@ -10,17 +10,26 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Name" Type="ntext" Nullable="false" />
-          <Property Name="Property" Type="ntext" Nullable="false" />
-          <Property Name="Improvements" Type="ntext" />
-          <Property Name="Units" Type="ntext" Nullable="false" />
-          <Property Name="PowerEra" Type="ntext" Nullable="false" />
-          <Property Name="Place" Type="ntext" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Property" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Improvements" Type="nvarchar(max)" />
+          <Property Name="Units" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PowerEra" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Place" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Evaluation" Type="int" Nullable="false" />
-          <Property Name="URL" Type="ntext" />
+          <Property Name="URL" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="RoleConformity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Role" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="RealRole" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityContainer Name="Хранилище ProjectRichardDataBaseModelContainer">
           <EntitySet Name="Nation" EntityType="Self.Nation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoleConformity" EntityType="Self.RoleConformity" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -42,7 +51,16 @@
         </EntityType>
         <EntityContainer Name="ProjectRichardDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Nations" EntityType="Self.Nation" />
+          <EntitySet Name="RoleConformities" EntityType="ProjectRichardDataBaseModel.RoleConformity" />
         </EntityContainer>
+        <EntityType Name="RoleConformity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Role" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RealRole" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -61,6 +79,15 @@
                 <ScalarProperty Name="Place" ColumnName="Place" />
                 <ScalarProperty Name="Evaluation" ColumnName="Evaluation" />
                 <ScalarProperty Name="URL" ColumnName="URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoleConformities">
+            <EntityTypeMapping TypeName="ProjectRichardDataBaseModel.RoleConformity">
+              <MappingFragment StoreEntitySet="RoleConformity">
+                <ScalarProperty Name="RealRole" ColumnName="RealRole" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

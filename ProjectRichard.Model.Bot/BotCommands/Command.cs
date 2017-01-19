@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System.Reflection;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using ProjectRichard.Data;
 using Discord.Commands;
-using System.Reflection;
 
 namespace ProjectRichard.Model.Bot.BotCommands
 {
@@ -15,6 +17,12 @@ namespace ProjectRichard.Model.Bot.BotCommands
 
         public string Description { get; protected set; }
 
+        public BotRoles Role { get; protected set; }
+
+        public string ParameterName { get; protected set; }
+
+        public ParameterType ParameterType { get; protected set; }
+
         #endregion
 
         public Command(IModule parentModule, MethodInfo commandMethod)
@@ -22,23 +30,57 @@ namespace ProjectRichard.Model.Bot.BotCommands
             mParentModule = parentModule;
             mMethod = commandMethod;
 
-            CommandAttribute atribute = (mMethod.GetCustomAttribute(typeof(CommandAttribute)) as CommandAttribute);
-
-            Name = atribute.Name;
-            Description = atribute.Description;
+            Init();
         }
 
         public virtual void Run(CommandService service)
         {
-            service.CreateCommand(Name).
-                    Description(Description).
-                    Do(async (args) =>
-                    {
-                        await args.Message.Delete();
+            var cmd = service.CreateCommand(Name).Description(Description);
 
-                        Task function = (Task)mMethod.Invoke(mParentModule, new object[] { args });
-                        await function;
-                    });
+            if(ParameterName != null)
+                cmd.Parameter(ParameterName, ParameterType);
+
+            cmd.Do(async (args) =>
+                {
+                    await args.Message.Delete();
+
+                    if (GetRealRole(args.User.Roles) < Role) {
+                        await args.Channel.SendMessage(CommandResources.PermissionDeniedMessege);
+                        return;
+                    }
+
+                    Task function = (Task)mMethod.Invoke(mParentModule, new object[] { args });
+                    await function;
+                });
         }
+
+        #region Private methods
+
+        private BotRoles GetRealRole(IEnumerable<Discord.Role> roles)
+        {
+            BotRoles userRole = BotRoles.User;
+
+            foreach (var role in roles) {
+                BotRoles realRole = RoleManager.GetRealRole(role.Name);
+
+                if (realRole > userRole)
+                    userRole = realRole;
+            }
+
+            return userRole;
+        }
+
+        private void Init()
+        {
+            CommandAttribute atribute = (mMethod.GetCustomAttribute(typeof(CommandAttribute)) as CommandAttribute);
+
+            Name = atribute.Name;
+            Description = atribute.Description;
+            Role = atribute.Role;
+            ParameterName = atribute.ParameterName;
+            ParameterType = atribute.ParameterType;
+        }
+
+        #endregion
     }
 }

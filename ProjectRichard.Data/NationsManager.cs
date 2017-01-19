@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectRichard.Data
 {
@@ -71,9 +68,9 @@ namespace ProjectRichard.Data
 
         public Nation FindByName(string name)
         {
-            return (from nation in mNations
-                    where nation.Name.ToUpper() == name.ToUpper()
-                    select nation).FirstOrDefault();
+            return mNations
+                .Where(nation => nation.Name.ToUpper() == name.ToUpper())
+                .FirstOrDefault();
         }
 
         #endregion

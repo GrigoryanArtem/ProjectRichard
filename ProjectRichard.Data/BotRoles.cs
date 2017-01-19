@@ -1,4 +1,4 @@
-﻿namespace ProjectRichard.Model.Bot.BotCommands
+﻿namespace ProjectRichard.Data
 {
     public enum BotRoles
     {

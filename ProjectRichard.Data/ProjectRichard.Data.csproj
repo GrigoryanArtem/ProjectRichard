@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotRoles.cs" />
     <Compile Include="Nation.cs">
       <DependentUpon>ProjectRichardDBModel.tt</DependentUpon>
     </Compile>
@@ -71,6 +72,10 @@
       <DependentUpon>ProjectRichardDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleConformity.cs">
+      <DependentUpon>ProjectRichardDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
