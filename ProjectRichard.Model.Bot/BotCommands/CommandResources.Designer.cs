@@ -61,6 +61,52 @@ namespace ProjectRichard.Model.Bot.BotCommands {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Игрок {0} зашел в комнату
+        ///({1}/{2}).
+        /// </summary>
+        internal static string AddedPlayerMessage {
+            get {
+                return ResourceManager.GetString("AddedPlayerMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на бан: {0}.
+        /// </summary>
+        internal static string BanInfoFormat {
+            get {
+                return ResourceManager.GetString("BanInfoFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Игрок {0} забанил нацию {1}.
+        /// </summary>
+        internal static string BannedPlayerMessage {
+            get {
+                return ResourceManager.GetString("BannedPlayerMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Простите сэр, но я не слышал про такую нацию..
+        /// </summary>
+        internal static string FindNationError {
+            get {
+                return ResourceManager.GetString("FindNationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Данная нация уже находится в списке забаненных..
+        /// </summary>
+        internal static string NationIsBanned {
+            get {
+                return ResourceManager.GetString("NationIsBanned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Сэр, к сожалению, ваше положение не позволяет использовать данную команду..
         /// </summary>
         internal static string PermissionDeniedMessege {
@@ -70,11 +116,111 @@ namespace ProjectRichard.Model.Bot.BotCommands {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Вы уже находитесь в комнате..
+        /// </summary>
+        internal static string PlayerContains {
+            get {
+                return ResourceManager.GetString("PlayerContains", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на 	⊳ {0}	.
+        /// </summary>
+        internal static string PlayerInfoFormat {
+            get {
+                return ResourceManager.GetString("PlayerInfoFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на В данный момент вы не находитесь в комнате..
+        /// </summary>
+        internal static string PlayerNotContains {
+            get {
+                return ResourceManager.GetString("PlayerNotContains", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Игроки.
+        /// </summary>
+        internal static string PlayersInfoHeader {
+            get {
+                return ResourceManager.GetString("PlayersInfoHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Игрок {0} покинул комнату
+        ///({1}/{2}).
+        /// </summary>
+        internal static string RemovedPlayerMessage {
+            get {
+                return ResourceManager.GetString("RemovedPlayerMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на {0} выкинул {1}..
         /// </summary>
         internal static string RollCommandMessageFormat {
             get {
                 return ResourceManager.GetString("RollCommandMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Комната готова к использованию..
+        /// </summary>
+        internal static string RoomCreatedMessage {
+            get {
+                return ResourceManager.GetString("RoomCreatedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Наполненность: ({0} / {1}).
+        /// </summary>
+        internal static string RoomInfoHeader {
+            get {
+                return ResourceManager.GetString("RoomInfoHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Комната пока не сформирована..
+        /// </summary>
+        internal static string RoomIsNotFormed {
+            get {
+                return ResourceManager.GetString("RoomIsNotFormed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Такой комнаты еще нет..
+        /// </summary>
+        internal static string RoomNotExistMessage {
+            get {
+                return ResourceManager.GetString("RoomNotExistMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Простите, но комната еще не создана..
+        /// </summary>
+        internal static string RoomWasNotCreated {
+            get {
+                return ResourceManager.GetString("RoomWasNotCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на {0} ({1}).
+        /// </summary>
+        internal static string ShortNationInfoFormat {
+            get {
+                return ResourceManager.GetString("ShortNationInfoFormat", resourceCulture);
             }
         }
     }

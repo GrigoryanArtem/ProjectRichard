@@ -9,5 +9,6 @@ namespace ProjectRichard.Model
         void AddPlayer(Player player);
         void RemovePlayer(Player player);
         bool IsFormed();
+        bool Contains(string name);
     }
 }

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using ProjectRichard.Data;
 using Discord.Commands;
+using System;
 
 namespace ProjectRichard.Model.Bot.BotCommands
 {
@@ -50,7 +51,15 @@ namespace ProjectRichard.Model.Bot.BotCommands
                     }
 
                     Task function = (Task)mMethod.Invoke(mParentModule, new object[] { args });
-                    await function;
+
+                    try
+                    {
+                        await function;
+                    }
+                    catch(BotException exp)
+                    {
+                        await args.Channel.SendMessage(exp.Message);
+                    }
                 });
         }
 

@@ -14,14 +14,30 @@ namespace ProjectRichard.Model.Bot
             stringBuilder.AppendLine(nation.Name);
             stringBuilder.AppendLine();
 
-            stringBuilder.AppendFormat(BotConstants.PropertyFormat, "Свойство", nation.Property);
-            stringBuilder.AppendFormat(BotConstants.PropertyFormat, "Здание/Улучшение", nation.Improvements);
-            stringBuilder.AppendFormat(BotConstants.PropertyFormat, "Юниты", nation.Units);
-            stringBuilder.AppendFormat(BotConstants.PropertyFormat, "Эпоха силы", nation.PowerEra);
-            stringBuilder.AppendFormat(BotConstants.PropertyFormat, "Место", nation.Place);
-            stringBuilder.AppendFormat(BotConstants.PropertyFormat, "Оценка", nation.Evaluation);
-            stringBuilder.AppendFormat(BotConstants.PropertyFormat, "Больше информации", nation.URL);
-            
+            stringBuilder.AppendFormat(BotConstants.PropertyFormat, BotConstants.Property, nation.Property);
+            stringBuilder.AppendLine();
+
+            if (nation.Improvements != null)
+            {
+                stringBuilder.AppendFormat(BotConstants.PropertyFormat, BotConstants.Improvements, nation.Improvements);
+                stringBuilder.AppendLine();
+            }
+
+            stringBuilder.AppendFormat(BotConstants.PropertyFormat, BotConstants.Units, nation.Units);
+            stringBuilder.AppendLine();
+
+            stringBuilder.AppendFormat(BotConstants.PropertyFormat, BotConstants.PowerEra, nation.PowerEra);
+            stringBuilder.AppendLine();
+
+            stringBuilder.AppendFormat(BotConstants.PropertyFormat, BotConstants.Place, nation.Place);
+            stringBuilder.AppendLine();
+
+            stringBuilder.AppendFormat(BotConstants.PropertyFormat, BotConstants.Evaluation, nation.Evaluation);
+            stringBuilder.AppendLine();
+
+            stringBuilder.AppendFormat(BotConstants.PropertyFormat, BotConstants.URL, nation.URL);
+            stringBuilder.AppendLine();
+
             stringBuilder.AppendLine(BotConstants.Separator);
 
             return stringBuilder.ToString();

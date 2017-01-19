@@ -12,8 +12,8 @@ namespace ProjectRichard.Model.Bot.BotCommands
 
         public BotRoles Role { get; set; } = BotRoles.User;
 
-        public string ParameterName { get; protected set; }
+        public string ParameterName { get; set; }
 
-        public ParameterType ParameterType { get; protected set; } = ParameterType.Required;
+        public ParameterType ParameterType { get; set; } = ParameterType.Required;
     }
 }

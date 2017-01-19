@@ -26,75 +26,11 @@
             }
         }
 
-        static internal string GetNationInfoCommand
-        {
-            get
-            {
-                return "nation";
-            }
-        }
-
-        static internal string UpdateCommand
-        {
-            get
-            {
-                return "update";
-            }
-        }
-
-        static internal string CreateRoomCommand
-        {
-            get
-            {
-                return "create room";
-            }
-        }
-
-        static internal string NumberOfPlayers
-        {
-            get
-            {
-                return "numberOfPlayers";
-            }
-        }
-
-        static internal string JoinCommand
-        {
-            get
-            {
-                return "join";
-            }
-        }
-
-        static internal string BannedNation
-        {
-            get
-            {
-                return "bannedNation";
-            }
-        }
-
-        static internal string CreateGameCommand
-        {
-            get
-            {
-                return "create game";
-            }
-        }
-
-        static internal string GameName
-        {
-            get
-            {
-                return "gameName";
-            }
-        }
-
         static internal string Separator
         {
             get
             {
-                return new string('=', 50);
+                return new string('ᆖ', 45);
             }
         }
 
@@ -106,13 +42,60 @@
             }
         }
 
-        static internal string GetNationInfoParameter
+        static internal string Property
         {
             get
             {
-                return "name";
+                return "Свойство";
             }
         }
 
+        static internal string Improvements
+        {
+            get
+            {
+                return "Здание/Улучшение";
+            }
+        }
+
+        static internal string Units
+        {
+            get
+            {
+                return "Юниты";
+            }
+        }
+
+        static internal string PowerEra
+        {
+            get
+            {
+                return "Эпоха силы";
+            }
+        }
+
+        static internal string Place
+        {
+            get
+            {
+                return "Место";
+            }
+        }
+
+        static internal string Evaluation
+        {
+            get
+            {
+                return "Оценка";
+            }
+        }
+
+        static internal string URL
+        {
+            get
+            {
+                return "Больше информации";
+            }
+        }
     }
 }

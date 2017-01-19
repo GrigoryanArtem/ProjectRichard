@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjectRichard.Model.CivilizationV
 {
@@ -56,6 +57,13 @@ namespace ProjectRichard.Model.CivilizationV
         public bool IsFormed()
         {
             return mPlayers.Count == mNumberOfPlayers;
+        }
+
+        public bool Contains(string name)
+        {
+            return mPlayers
+                .Where(player => player.Name == name)
+                .Count() > 0;
         }
     }
 }

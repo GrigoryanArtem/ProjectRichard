@@ -117,10 +117,60 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddedPlayerMessage" xml:space="preserve">
+    <value>Игрок {0} зашел в комнату
+({1}/{2})</value>
+  </data>
+  <data name="BanInfoFormat" xml:space="preserve">
+    <value>бан: {0}</value>
+  </data>
+  <data name="BannedPlayerMessage" xml:space="preserve">
+    <value>Игрок {0} забанил нацию {1}</value>
+  </data>
+  <data name="FindNationError" xml:space="preserve">
+    <value>Простите сэр, но я не слышал про такую нацию.</value>
+  </data>
+  <data name="NationIsBanned" xml:space="preserve">
+    <value>Данная нация уже находится в списке забаненных.</value>
+  </data>
   <data name="PermissionDeniedMessege" xml:space="preserve">
     <value>Сэр, к сожалению, ваше положение не позволяет использовать данную команду.</value>
   </data>
+  <data name="PlayerContains" xml:space="preserve">
+    <value>Вы уже находитесь в комнате.</value>
+  </data>
+  <data name="PlayerInfoFormat" xml:space="preserve">
+    <value>	⊳ {0}	</value>
+  </data>
+  <data name="PlayerNotContains" xml:space="preserve">
+    <value>В данный момент вы не находитесь в комнате.</value>
+  </data>
+  <data name="PlayersInfoHeader" xml:space="preserve">
+    <value>Игроки</value>
+  </data>
+  <data name="RemovedPlayerMessage" xml:space="preserve">
+    <value>Игрок {0} покинул комнату
+({1}/{2})</value>
+  </data>
   <data name="RollCommandMessageFormat" xml:space="preserve">
     <value>{0} выкинул {1}.</value>
+  </data>
+  <data name="RoomCreatedMessage" xml:space="preserve">
+    <value>Комната готова к использованию.</value>
+  </data>
+  <data name="RoomInfoHeader" xml:space="preserve">
+    <value>Наполненность: ({0} / {1})</value>
+  </data>
+  <data name="RoomIsNotFormed" xml:space="preserve">
+    <value>Комната пока не сформирована.</value>
+  </data>
+  <data name="RoomNotExistMessage" xml:space="preserve">
+    <value>Такой комнаты еще нет.</value>
+  </data>
+  <data name="RoomWasNotCreated" xml:space="preserve">
+    <value>Простите, но комната еще не создана.</value>
+  </data>
+  <data name="ShortNationInfoFormat" xml:space="preserve">
+    <value>{0} ({1})</value>
   </data>
 </root>

@@ -2,8 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectRichard.Model.CivilizationV
 {
@@ -24,7 +22,8 @@ namespace ProjectRichard.Model.CivilizationV
             {
                 CivilizationPlayer civPlayer = (player as CivilizationPlayer);
 
-                nations.Remove(civPlayer.BannedNation);
+                if(civPlayer.BannedNation != null)
+                    nations.Remove(civPlayer.BannedNation);
             }
 
             nations = nations.OrderBy(x => mRandom.Next()).ToList();

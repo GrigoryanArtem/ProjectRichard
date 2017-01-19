@@ -7,7 +7,7 @@ namespace ProjectRichard.Model.Bot.BotCommands
 {
     public class AdditionalBotModule : DefaultModule
     {
-        Random mRandom = new Random();
+        private Random mRandom = new Random();
 
         #region Commands
 

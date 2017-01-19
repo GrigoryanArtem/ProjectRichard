@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BotCommands\AdditionalBotModule.cs" />
+    <Compile Include="BotCommands\CivilizationBotModule.cs" />
     <Compile Include="BotCommands\CommandAttribute .cs" />
     <Compile Include="BotCommands\CommandResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -86,11 +87,7 @@
     <Compile Include="BotCommands\ICommandsController.cs" />
     <Compile Include="BotCommands\IModule.cs" />
     <Compile Include="BotConstants.cs" />
-    <Compile Include="BotMessages.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BotMessages.resx</DependentUpon>
-    </Compile>
+    <Compile Include="BotException.cs" />
     <Compile Include="DiscordBot.cs" />
     <Compile Include="NationInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,10 +109,6 @@
     <EmbeddedResource Include="BotCommands\CommandResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>CommandResources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="BotMessages.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>BotMessages.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

@@ -6,10 +6,7 @@ namespace ProjectRichard.Model.CivilizationV
     {
         public Nation BannedNation { get; set; }
 
-        public CivilizationPlayer(string name, Nation bannedNation) : base(name)
-        {
-            BannedNation = bannedNation;
-        }
+        public CivilizationPlayer(string name) : base(name) { }
 
         public override string ToString()
         {
