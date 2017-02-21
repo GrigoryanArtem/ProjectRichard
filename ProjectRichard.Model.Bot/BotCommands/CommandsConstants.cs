@@ -29,11 +29,11 @@
         public const string BanCommandDescription = "Создает игру при из сформированной комнаты.";
         public const string BanCommandParameterName = "nation name";
 
-        public const string NationCommandName = "nation";
+        public const string NationCommandName = "info";
         public const string NationCommandDescription = "Информация о нации.";
         public const string NationCommandParameterName = "nation name";
 
-        public const string NationsCommandName = "nation all";
+        public const string NationsCommandName = "nations";
         public const string NationsCommandDescription = "Список всех наций с их оценками.";
     }
 }
