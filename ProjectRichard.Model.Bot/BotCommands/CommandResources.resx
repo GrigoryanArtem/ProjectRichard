@@ -152,6 +152,9 @@
     <value>Игрок {0} покинул комнату
 ({1}/{2})</value>
   </data>
+  <data name="RemoveMessage" xml:space="preserve">
+    <value>Удаленно {0} сообщений от {1}.</value>
+  </data>
   <data name="RollCommandMessageFormat" xml:space="preserve">
     <value>{0} выкинул {1}.</value>
   </data>
@@ -171,6 +174,6 @@
     <value>Простите, но комната еще не создана.</value>
   </data>
   <data name="ShortNationInfoFormat" xml:space="preserve">
-    <value>{0} ({1})</value>
+    <value>{0} [{1}]</value>
   </data>
 </root>

@@ -35,5 +35,9 @@
 
         public const string NationsCommandName = "nations";
         public const string NationsCommandDescription = "Список всех наций с их оценками.";
+
+        public const string ClearCommandName = "clear";
+        public const string ClearCommandDescription = "Очищает сообщение пользователя.";
+        public const string ClearCommandParameterName = "user name";
     }
 }

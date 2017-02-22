@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectRichard.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,6 +9,7 @@ namespace ProjectRichard.Model.CivilizationV
     {
         private List<Player> mPlayers = new List<Player>();
         private int mNumberOfPlayers;
+        private Map mGameMap;
 
         public List<Player> Players
         {
@@ -25,12 +27,21 @@ namespace ProjectRichard.Model.CivilizationV
             }
         }
 
-        public CivilizationGameRoom(int numberOfPlayers)
+        public Map GameMap
+        {
+            get
+            {
+                return mGameMap;
+            }
+        }
+
+        public CivilizationGameRoom(int numberOfPlayers, Map gameMap)
         {
             if (numberOfPlayers < CivilizationConstants.MinPlayers ||
                 numberOfPlayers > CivilizationConstants.MaxPlayers)
                 throw new ArgumentException();
 
+            mGameMap = gameMap;
             mNumberOfPlayers = numberOfPlayers;
         }
 

@@ -7,6 +7,7 @@
       <Diagram DiagramId="c17dc5b311dd476f8777263eec0455d2" Name="Diagram1">
         <EntityTypeShape EntityType="ProjectRichardDataBaseModel.Nation" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ProjectRichardDataBaseModel.RoleConformity" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ProjectRichardDataBaseModel.Map" Width="1.5" PointX="3.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

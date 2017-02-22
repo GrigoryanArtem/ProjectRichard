@@ -97,5 +97,54 @@
                 return "Больше информации";
             }
         }
+
+        static internal string MapMainInfoFormat
+        {
+            get
+            {
+                return "Карта: {0} [{1}]";
+            }
+        }
+
+        static internal string IsMarineFormat
+        {
+            get
+            {
+                return "Морская?: {0}";
+            }
+        }
+
+        static internal string DescriptionFormat
+        {
+            get
+            {
+                return "Описание: {0}";
+            }
+        }
+
+        static internal string Yes
+        {
+            get
+            {
+                return "Да";
+            }
+        }
+
+        static internal string No
+        {
+            get
+            {
+                return "Нет";
+            }
+        }
+
+        static internal int MessagesLimit
+        {
+            get
+            {
+                return 100;
+            }
+        }
+        
     }
 }

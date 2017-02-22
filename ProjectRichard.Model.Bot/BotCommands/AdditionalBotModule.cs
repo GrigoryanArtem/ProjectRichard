@@ -25,6 +25,27 @@ namespace ProjectRichard.Model.Bot.BotCommands
             await e.Channel.SendMessage(String.Format(CommandResources.RollCommandMessageFormat, e.User.Name, randomNumber));
         }
 
+        [Command(Name = CommandsConstants.ClearCommandName, Description = CommandsConstants.ClearCommandDescription,
+            Role = Data.BotRoles.Admin, ParameterName = CommandsConstants.ClearCommandParameterName)]
+        public async Task Clear(CommandEventArgs e)
+        {
+            string userName = e.GetArg(CommandsConstants.ClearCommandParameterName);
+            int count = 0;
+
+            await e.Channel.DownloadMessages(limit: BotConstants.MessagesLimit);
+
+            foreach (var message in e.Channel.Messages)
+            {
+                if (message.User.Name == userName)
+                {
+                    await message.Delete();
+                    count++;
+                }
+            }
+
+            await e.Channel.SendMessage(String.Format(CommandResources.RemoveMessage, count, userName));
+        }
+
         #endregion
 
         #region Private methods

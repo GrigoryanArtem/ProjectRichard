@@ -24,6 +24,7 @@ namespace ProjectRichard.Model.Bot.BotCommands
             mRoom = mGameCreator.CreateRoom(numberOfPlayers);
 
             await e.Channel.SendMessage(String.Format(CommandResources.RoomCreatedMessage));
+            await e.Channel.SendMessage(MapInfo.Create(mRoom.GameMap));
         }
 
         [Command(Name = CommandsConstants.RoomInfoCommandName, Description = CommandsConstants.RoomInfoCommandDescription)]
@@ -147,6 +148,7 @@ namespace ProjectRichard.Model.Bot.BotCommands
             stringBuilder.AppendLine(BotConstants.Separator);
 
             stringBuilder.AppendLine(game.Name);
+            stringBuilder.AppendLine(game.GameMap.Name);
             stringBuilder.AppendLine();
 
             foreach (var row in game.Board.Board)

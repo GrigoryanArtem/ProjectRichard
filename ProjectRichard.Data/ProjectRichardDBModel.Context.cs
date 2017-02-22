@@ -27,5 +27,6 @@ namespace ProjectRichard.Data
     
         public virtual DbSet<Nation> Nations { get; set; }
         public virtual DbSet<RoleConformity> RoleConformities { get; set; }
+        public virtual DbSet<Map> Maps { get; set; }
     }
 }

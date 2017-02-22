@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Хранилище ProjectRichardDataBaseModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Map">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IsMarine" Type="bit" Nullable="false" />
+          <Property Name="Evaluation" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="Nation">
           <Key>
             <PropertyRef Name="Id" />
@@ -28,6 +38,7 @@
           <Property Name="RealRole" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityContainer Name="Хранилище ProjectRichardDataBaseModelContainer">
+          <EntitySet Name="Map" EntityType="Self.Map" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nation" EntityType="Self.Nation" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="RoleConformity" EntityType="Self.RoleConformity" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -52,6 +63,7 @@
         <EntityContainer Name="ProjectRichardDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Nations" EntityType="Self.Nation" />
           <EntitySet Name="RoleConformities" EntityType="ProjectRichardDataBaseModel.RoleConformity" />
+          <EntitySet Name="Maps" EntityType="ProjectRichardDataBaseModel.Map" />
         </EntityContainer>
         <EntityType Name="RoleConformity">
           <Key>
@@ -60,6 +72,16 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Role" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="RealRole" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Map">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsMarine" Type="Boolean" Nullable="false" />
+          <Property Name="Evaluation" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -87,6 +109,17 @@
               <MappingFragment StoreEntitySet="RoleConformity">
                 <ScalarProperty Name="RealRole" ColumnName="RealRole" />
                 <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Maps">
+            <EntityTypeMapping TypeName="ProjectRichardDataBaseModel.Map">
+              <MappingFragment StoreEntitySet="Map">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Evaluation" ColumnName="Evaluation" />
+                <ScalarProperty Name="IsMarine" ColumnName="IsMarine" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

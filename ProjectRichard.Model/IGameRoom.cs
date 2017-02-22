@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ProjectRichard.Data;
+using System.Collections.Generic;
 
 namespace ProjectRichard.Model
 {
@@ -6,6 +7,7 @@ namespace ProjectRichard.Model
     {
         int NumberOfPlayers { get; }
         List<Player> Players { get; }
+        Map GameMap { get; }
         void AddPlayer(Player player);
         void RemovePlayer(Player player);
         bool IsFormed();

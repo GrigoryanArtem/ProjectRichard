@@ -11,7 +11,7 @@ namespace ProjectRichard.Model.CivilizationV
 
         public IGameRoom CreateRoom(int numberOfPlayers)
         {
-            return new CivilizationGameRoom(numberOfPlayers);
+            return new CivilizationGameRoom(numberOfPlayers, GenerateMap());
         }
 
         public Game CreateGame(IGameRoom room, string name)
@@ -40,7 +40,27 @@ namespace ProjectRichard.Model.CivilizationV
                 board.Add(room.Players[i], nationsForPlayer);
             }
 
-            return new CivilizationGame(name, board);
+            return new CivilizationGame(name, room.GameMap, board);
         }      
+
+        private Map GenerateMap()
+        {
+            int evaluationForMaps = GenerateEvaluation(CivilizationConstants.MaxMapEvaluation);
+            List<Map> maps = MapManager.GetMapsByEvaluation(evaluationForMaps);
+
+            return maps.ElementAt(mRandom.Next(maps.Count));
+        }
+
+        private int GenerateEvaluation(int maxEvaluation)
+        {
+            int maxOfRandom = ((maxEvaluation * maxEvaluation + maxEvaluation) / 2) + 1;
+
+            return MagicMethod(mRandom.Next(maxOfRandom));
+        }
+
+        private int MagicMethod(int number)
+        {
+            return (int)Math.Ceiling((Math.Sqrt(1 + 8 * number) - 1) / 2); ;
+        }
     }
 }

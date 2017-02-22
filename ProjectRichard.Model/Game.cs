@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ProjectRichard.Data;
+using System.Collections.Generic;
 
 namespace ProjectRichard.Model
 {
@@ -7,6 +8,8 @@ namespace ProjectRichard.Model
         public string Name { get; protected set; }
         
         public List<Player> Players { get; protected set; }
+
+        public Map GameMap { get; protected set; }
 
         public Game()
         {

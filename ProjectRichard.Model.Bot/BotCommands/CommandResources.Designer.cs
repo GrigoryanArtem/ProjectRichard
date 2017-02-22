@@ -162,6 +162,15 @@ namespace ProjectRichard.Model.Bot.BotCommands {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Удаленно {0} сообщений от {1}..
+        /// </summary>
+        internal static string RemoveMessage {
+            get {
+                return ResourceManager.GetString("RemoveMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на {0} выкинул {1}..
         /// </summary>
         internal static string RollCommandMessageFormat {
@@ -216,7 +225,7 @@ namespace ProjectRichard.Model.Bot.BotCommands {
         }
         
         /// <summary>
-        ///   Ищет локализованную строку, похожую на {0} ({1}).
+        ///   Ищет локализованную строку, похожую на {0} [{1}].
         /// </summary>
         internal static string ShortNationInfoFormat {
             get {

@@ -25,5 +25,13 @@
                 return 3;
             }
         }
+
+        static internal int MaxMapEvaluation
+        {
+            get
+            {
+                return 5;
+            }
+        }
     }
 }
